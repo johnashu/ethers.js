@@ -14574,7 +14574,7 @@ const __$G = (typeof globalThis !== 'undefined' ? globalThis: typeof window !== 
                 return checkReceipt(receipt);
             }
             if (receipt) {
-                if ((await receipt.confirmations()) >= confirms) {
+                if (receipt.confirmation >= confirms) {
                     return checkReceipt(receipt);
                 }
             }
@@ -14602,7 +14602,7 @@ const __$G = (typeof globalThis !== 'undefined' ? globalThis: typeof window !== 
                 }
                 const txListener = async (receipt) => {
                     // Done; return it!
-                    if ((await receipt.confirmations()) >= confirms) {
+                    if (receipt.confirmation >= confirms) {
                         cancel();
                         try {
                             resolve(checkReceipt(receipt));
